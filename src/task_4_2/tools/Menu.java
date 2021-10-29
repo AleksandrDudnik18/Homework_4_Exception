@@ -14,6 +14,7 @@ public class Menu {
         GET_BALANCE(1, "to check balance, input 1"),
         PUT_MONEY(2, "to put money, input 2"),
         GET_MONEY(3, "to get money, input 3"),
+        EXIT(4, "for exit, input 4"),
         WRONG_CMD(-1, "wrong command");
 
         private int num;
@@ -42,7 +43,8 @@ public class Menu {
 
         for (Commands cmd :
                 Commands.values()) {
-            System.out.println(cmd.getMessage());
+            if (!cmd.equals(Commands.WRONG_CMD))
+                System.out.println(cmd.getMessage());
         }
 
         if (scanner.hasNextInt()) {
@@ -73,8 +75,12 @@ public class Menu {
         System.out.println("Hello, input your pin:");
     }
 
+    public static void showUnblocked() {
+        System.out.println("Terminal is unblocked");
+    }
+
     public static void showBalance(BigInteger balance) {
-        System.out.println("Your account has " + balance + " money");
+        System.out.println("Your terminal has " + balance + " money");
     }
 
     public static void showGetMoney(BigInteger money, BigInteger balance) {
@@ -83,6 +89,10 @@ public class Menu {
 
     public static void showPutMoney(BigInteger money, BigInteger balance) {
         System.out.println("You put " + money + ", your account has " + balance);
+    }
+
+    public static void showExit() {
+        System.out.println("Thank you for your visiting!!!");
     }
 
 }

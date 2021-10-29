@@ -29,6 +29,10 @@ public class PinValidator {
         return current;
     }
 
+    public void clearPin() {
+        pin.delete(0, pin.length());
+    }
+
     public void verifyPinLength() throws VerifyLengthPinException {
 
         if (pin.length() < 4)
